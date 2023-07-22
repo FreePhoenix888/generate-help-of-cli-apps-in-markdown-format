@@ -1,0 +1,30 @@
+{
+  "name": "@freephoenix888/generate-help-of-cli-apps-in-markdown-format",
+  "version": "0.0.1-dev.0",
+  "description": "Generates help messages of CLI applications in markdown format",
+  "type": "module",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "bin": {
+    "generate-help-of-cli-apps-in-markdown-format": "dist/cli/generate-help-of-cli-apps-in-markdown-format.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "execa": "^7.1.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "@types/yargs": "^17.0.24",
+    "typescript": "^5.1.6",
+    "@freephoenix888/generate-usage-ways-of-npm-cli-apps-in-markdown-format": "^1.0.0"
+  }
+}
