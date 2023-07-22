@@ -34,7 +34,7 @@ export async function generateHelpOfCliAppsInMarkdownFormat(options: generateHel
     const { stdout: helpMessage } = await execa(cliAppFilePath, ['--help']);
 
     // Get the base name of the utility file (without path)
-    const cliUtilityFileName = path.basename(cliAppFilePath);
+    const cliUtilityFileName = path.basename(cliAppFilePath, path.extname(cliAppFilePath));
 
     // Format the help message and add it to all help messages
     allHelpMessages += `
