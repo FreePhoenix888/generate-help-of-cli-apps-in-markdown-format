@@ -12,7 +12,7 @@ Generates help messages of CLI applications in markdown format in markdown forma
   * [Library Usage](#library-usage)
 - [Cli](#cli)
   * [Cli Usage](#cli-usage)
-    + [`generate-help-of-cli-apps-in-markdown-format.js`](#generate-help-of-cli-apps-in-markdown-formatjs)
+    + [`generate-help-of-cli-apps-in-markdown-format`](#generate-help-of-cli-apps-in-markdown-format)
   * [Cli Usage Ways](#cli-usage-ways)
     + [Directly running using npx](#directly-running-using-npx)
       - [Global Installation](#global-installation)
@@ -37,7 +37,7 @@ See [Documentation] for examples and API
 ## Cli Usage
 <!-- CLI_HELP_START -->
 
-### `generate-help-of-cli-apps-in-markdown-format.js`
+### `generate-help-of-cli-apps-in-markdown-format`
 ```
 generate-help-of-cli-apps-in-markdown-format.js [Options]
 
