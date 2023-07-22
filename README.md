@@ -39,7 +39,7 @@ See [Documentation] for examples and API
 
 ### `generate-help-of-cli-apps-in-markdown-format`
 ```
-generate-help-of-cli-apps-in-markdown-format.js [Options]
+generate-help-of-cli-apps-in-markdown-format [Options]
 
 Generates help messages of CLI applications in markdown format
 
