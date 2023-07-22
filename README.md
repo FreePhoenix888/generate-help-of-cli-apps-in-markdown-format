@@ -8,13 +8,22 @@ Generates help messages of CLI applications in markdown format in markdown forma
 - [Table Of Contents](#table-of-contents)
 - [What can it be used for?](#what-can-it-be-used-for)
 - [Quick Start](#quick-start)
-  * [Pre-requisites](#pre-requisites)
+  - [Pre-requisites](#pre-requisites)
+  - [JavaScript](#javascript)
+  - [Bash](#bash)
+- [Library](#library)
+  - [Library Usage](#library-usage)
+- [Cli](#cli)
+  - [Cli Usage](#cli-usage)
+    - [`generate-help-of-cli-apps-in-markdown-format`](#generate-help-of-cli-apps-in-markdown-format)
+  - [Cli Usage Ways](#cli-usage-ways)
+    - [Directly running using npx](#directly-running-using-npx)
       - [Global Installation](#global-installation)
-        * [Global installation and running using binary name](#global-installation-and-running-using-binary-name)
-        * [Global installation and running using npx](#global-installation-and-running-using-npx)
+        - [Global installation and running using binary name](#global-installation-and-running-using-binary-name)
+        - [Global installation and running using npx](#global-installation-and-running-using-npx)
       - [Local installation](#local-installation)
-        * [Local installation and running using npx](#local-installation-and-running-using-npx)
-        * [Local installation and running using npm script](#local-installation-and-running-using-npm-script)
+        - [Local installation and running using npx](#local-installation-and-running-using-npx)
+        - [Local installation and running using npm script](#local-installation-and-running-using-npm-script)
 <!-- TABLE_OF_CONTENTS_END -->
 
 # What can it be used for?
@@ -26,6 +35,56 @@ This package uses itself to do that. See [Cli Usage](#cli-usage) section below -
 Add the following to your README.md
 ```markdown
 # Cli
+## Cli Usage Ways
+<!-- CLI_USAGE_WAYS_START -->
+<!-- CLI_USAGE_WAYS_END -->
+```
+## JavaScript
+Run this javascript code
+```javascript
+const fs = require('fs').promises;
+const {generateHelpOfCliAppsInMarkdownFormat} = require('@freephoenix888/generate-help-of-cli-apps-in-markdown-format');
+const generatedHelpOfCliApps = await generateHelpOfCliAppsInMarkdownFormat({
+  cliAppFilePaths
+});
+const readme = await fs.readFile('README.md', 'utf8');
+const pattern = /(<!-- CLI_HELP_START -->)[\S\s]*(<!-- CLI_HELP_END -->)/;
+const replacement = '$1\n' + generatedHelpOfCliApps + '\n$2';
+const newReadme = readme.replace(pattern, replacement);
+await fs.writeFile('README.md', newReadme);
+```
+## Bash
+Run this bash script
+```bash
+cli_help=$(npx --yes @freephoenix888/generate-help-of-cli-apps-in-markdown-format --cli-app-file-paths $(find ./dist/cli/*.js) --root-header-level 2)
+pattern="(<!-- CLI_HELP_START -->)[\\S\\s]*(<!-- CLI_HELP_END -->)"
+replacement=$'$1\n'"${cli_help}"$'\n$2'
+npx --yes replace "$pattern" "$replacement" README.md
+```
+
+# Library
+## Library Usage
+See [Documentation] for examples and API
+# Cli
+## Cli Usage
+<!-- ACTUAL_CLI_HELP_START -->
+
+### `generate-help-of-cli-apps-in-markdown-format`
+```
+generate-help-of-cli-apps-in-markdown-format [Options]
+
+Generates help messages of CLI applications in markdown format
+
+Options:
+  --version             Show version number                            [boolean]
+  --cli-app-file-paths  Paths of CLI utility files            [array] [required]
+  --root-header-level   Header level of the root header. Example: If you want ge
+                        nerated headers to have 4 hashes, then specify 3 here
+                                                           [number] [default: 2]
+  --help                Show help                                      [boolean]
+```
+<!-- ACTUAL_CLI_HELP_END -->
+
 ## Cli Usage Ways
 <!-- CLI_USAGE_WAYS_START -->
 If you are going to use this package in a project - it is recommended to install it is [Locally](#local-installation)  
