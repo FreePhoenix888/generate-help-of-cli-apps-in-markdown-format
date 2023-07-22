@@ -19,6 +19,7 @@ jobs:
       test-command: "echo 'Tests are temporarily disabled'"
       should-generate-documentation: true
       generate-documentation-command: |
+        chmod +x ./dist/cli/generate-help-of-cli-apps-in-markdown-format.js
         cli_help=$(node ./dist/cli/generate-help-of-cli-apps-in-markdown-format.js --cli-app-file-paths $(find ./dist/cli/*.js) --root-header-level 2)
         pattern='(<!-- CLI_HELP_START -->)[\\S\\s]*(<!-- CLI_HELP_END -->)'
         replacement=$'$1\n'"${cli_help}"$'\n$2'
