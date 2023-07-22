@@ -35,14 +35,28 @@ jobs:
         replacement=$'$1\n'"${table_of_contents}"$'\n$2'
         npx replace "$pattern" "$replacement" README.md
 
+        git config --global user.name 'FreePhoenix888'
+        git config --global user.email 'freephoenix888@gmail.com'
+
         git add README.md
         if git diff --staged --quiet
         then
           echo "No changes to commit"
         else
-          git config --global user.name 'FreePhoenix888'
-          git config --global user.email 'freephoenix888@gmail.com'
           git commit -m 'docs: update README.md'
           git push origin main
         fi
+
+        git clone https://github.com/FreePhoenix888/generate-help-of-cli-apps-in-markdown-format.wiki.git
+        cp --force README.md generate-help-of-cli-apps-in-markdown-format.wiki/Home.md
+        cd generate-help-of-cli-apps-in-markdown-format.wiki
+        git add Home.md
+        if git diff --staged --quiet
+        then
+          echo "No changes to commit"
+        else
+          git commit -m 'docs: update Home.md'
+          git push origin main
+        fi
+        
         npx --yes typedoc ./src/main.ts
