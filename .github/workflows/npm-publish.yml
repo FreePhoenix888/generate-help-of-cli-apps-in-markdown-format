@@ -12,6 +12,8 @@ on:
 jobs:
   main:
     uses: deep-foundation/workflows/.github/workflows/npm-publish.yml@main
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
     with:
@@ -47,7 +49,7 @@ jobs:
           git push origin main
         fi
 
-        git clone "https://${{ secrets.GITHUB_TOKEN }}@github.com/FreePhoenix888/generate-help-of-cli-apps-in-markdown-format.wiki.git"
+        git clone "https://${{ GITHUB_TOKEN }}@github.com/FreePhoenix888/generate-help-of-cli-apps-in-markdown-format.wiki.git"
         cp --force README.md generate-help-of-cli-apps-in-markdown-format.wiki/Home.md
         cd generate-help-of-cli-apps-in-markdown-format.wiki
         git add Home.md
