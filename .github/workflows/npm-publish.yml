@@ -56,7 +56,7 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m 'docs: update Home.md'
-          git push origin main
+          git push
         fi
         
         npx --yes typedoc ./src/main.ts
