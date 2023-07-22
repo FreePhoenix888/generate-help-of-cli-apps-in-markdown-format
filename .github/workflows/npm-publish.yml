@@ -47,7 +47,7 @@ jobs:
           git push origin main
         fi
 
-        git clone "https://${{ secrets.GITHUB_TOKEN }}@github.com/FreePhoenix888/generate-help-of-cli-apps-in-markdown-format.wiki.git"
+        git clone https://github.com/FreePhoenix888/generate-help-of-cli-apps-in-markdown-format.wiki.git
         cp --force README.md generate-help-of-cli-apps-in-markdown-format.wiki/Home.md
         cd generate-help-of-cli-apps-in-markdown-format.wiki
         git add Home.md
