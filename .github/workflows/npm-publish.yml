@@ -25,7 +25,7 @@ jobs:
         replacement=$'$1\n'"${cli_help}"$'\n$2'
         npx --yes replace "$pattern" "$replacement" README.md
 
-        cli_usage_ways=$(npx --yes @freephoenix888/generate-npm-cli-usage-ways --root-header-level 2)
+        cli_usage_ways=$(npx --yes @freephoenix888/generate-usage-ways-of-npm-cli-apps-in-markdown-format  --root-header-level 2)
         pattern='(<!-- CLI_USAGE_WAYS_START -->)[\\S\\s]*(<!-- CLI_USAGE_WAYS_END -->)'
         replacement=$'$1\n'"${cli_usage_ways}"$'\n$2'
         npx --yes replace "$pattern" "$replacement" README.md
