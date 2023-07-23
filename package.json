@@ -15,7 +15,7 @@
     "build": "tsc"
   },
   "keywords": [],
-  "author": "",
+  "author": "FreePhoenix888",
   "license": "Unlicense",
   "files": [
     "dist"
