@@ -8,22 +8,22 @@ Generates help messages of CLI applications in markdown format in markdown forma
 - [Table Of Contents](#table-of-contents)
 - [What can it be used for?](#what-can-it-be-used-for)
 - [Quick Start](#quick-start)
-  * [Pre-requisites](#pre-requisites)
-  * [JavaScript](#javascript)
-  * [Bash](#bash)
+  - [Pre-requisites](#pre-requisites)
+  - [JavaScript](#javascript)
+  - [Bash](#bash)
 - [Library](#library)
-  * [Library Usage](#library-usage)
+  - [Library Usage](#library-usage)
 - [Cli](#cli)
-  * [Cli Usage](#cli-usage)
-    + [`generate-help-of-cli-apps-in-markdown-format`](#generate-help-of-cli-apps-in-markdown-format)
-  * [Cli Usage Ways](#cli-usage-ways)
-    + [Directly running using npx](#directly-running-using-npx)
+  - [Cli Usage](#cli-usage)
+    - [`generate-help-of-cli-apps-in-markdown-format`](#generate-help-of-cli-apps-in-markdown-format)
+  - [Cli Usage Ways](#cli-usage-ways)
+    - [Directly running using npx](#directly-running-using-npx)
       - [Global Installation](#global-installation)
-        * [Global installation and running using binary name](#global-installation-and-running-using-binary-name)
-        * [Global installation and running using npx](#global-installation-and-running-using-npx)
+        - [Global installation and running using binary name](#global-installation-and-running-using-binary-name)
+        - [Global installation and running using npx](#global-installation-and-running-using-npx)
       - [Local installation](#local-installation)
-        * [Local installation and running using npx](#local-installation-and-running-using-npx)
-        * [Local installation and running using npm script](#local-installation-and-running-using-npm-script)
+        - [Local installation and running using npx](#local-installation-and-running-using-npx)
+        - [Local installation and running using npm script](#local-installation-and-running-using-npm-script)
 <!-- TABLE_OF_CONTENTS_END -->
 
 # What can it be used for?
@@ -32,17 +32,17 @@ This package uses itself to do that. See [Cli Usage](#cli-usage) section below -
 
 # Quick Start
 ## Pre-requisites
-Add the following to your README.md
-```markdown
-# Cli
-## Cli Usage
-<!-- CLI_HELP_START -->
-<!-- CLI_HELP_END -->
-```
-And allow execution of your cli utilities. For example in bash you can do it like this
-```bash
-find ./dist/cli/ -name "*.js" -exec chmod +x {} \;
-```
+- Add the following to your README.md
+  ```markdown
+  # Cli
+  ## Cli Usage
+  <!-- CLI_HELP_START -->
+  <!-- CLI_HELP_END -->
+  ```
+- Allow execution of your cli utilities. For example in bash you can do it like this
+  ```bash
+  find ./dist/cli/ -name "*.js" -exec chmod +x {} \;
+  ```
 ## JavaScript
 Run this javascript code
 ```javascript
