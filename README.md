@@ -36,8 +36,8 @@ Add the following to your README.md
 ```markdown
 # Cli
 ## Cli Usage Ways
-<!-- CLI_USAGE_WAYS_START -->
-<!-- CLI_USAGE_WAYS_END -->
+<!-- CLI_HELP_START -->
+<!-- CLI_HELP_END -->
 ```
 ## JavaScript
 Run this javascript code
