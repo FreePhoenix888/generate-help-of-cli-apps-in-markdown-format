@@ -5,6 +5,9 @@
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
+  "repository": {
+    "url": "https://github.com/FreePhoenix888/generate-help-of-cli-apps-in-markdown-format"
+  },
   "bin": {
     "generate-help-of-cli-apps-in-markdown-format": "dist/cli/generate-help-of-cli-apps-in-markdown-format.js"
   },
