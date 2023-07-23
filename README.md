@@ -42,16 +42,18 @@ Add the following to your README.md
 ## JavaScript
 Run this javascript code
 ```javascript
-const fs = require('fs').promises;
-const {generateHelpOfCliAppsInMarkdownFormat} = require('@freephoenix888/generate-help-of-cli-apps-in-markdown-format');
-const generatedHelpOfCliApps = await generateHelpOfCliAppsInMarkdownFormat({
+import {readFileSync, writeFileSync} from 'fs';
+import {generateHelpOfCliAppsInMarkdownFormat} from '@freephoenix888/generate-help-of-cli-apps-in-markdown-format';
+
+const cliAppFilePaths = /* You need to specify the paths here or get them from elsewhere. */
+const generatedHelpOfCliApps = generateHelpOfCliAppsInMarkdownFormat({
   cliAppFilePaths
 });
-const readme = await fs.readFile('README.md', 'utf8');
+const readme = readFileSync('README.md', 'utf8');
 const pattern = /(<!-- CLI_HELP_START -->)[\S\s]*(<!-- CLI_HELP_END -->)/;
 const replacement = '$1\n' + generatedHelpOfCliApps + '\n$2';
 const newReadme = readme.replace(pattern, replacement);
-await fs.writeFile('README.md', newReadme);
+writeFileSync('README.md', newReadme);
 ```
 ## Bash
 Run this bash script
