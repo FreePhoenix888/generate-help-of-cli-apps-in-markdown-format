@@ -39,6 +39,10 @@ Add the following to your README.md
 <!-- CLI_HELP_START -->
 <!-- CLI_HELP_END -->
 ```
+And allow execution of your cli utilities. For example in bash you can do it like this
+```bash
+find ./dist/cli/ -name "*.js" -exec chmod +x {} \;
+```
 ## JavaScript
 Run this javascript code
 ```javascript
@@ -58,6 +62,7 @@ writeFileSync('README.md', newReadme);
 ## Bash
 Run this bash script
 ```bash
+find ./dist/cli/ -name "*.js" -exec chmod +x {} \;
 cli_help=$(npx --yes @freephoenix888/generate-help-of-cli-apps-in-markdown-format --cli-app-file-paths $(find ./dist/cli/*.js) --root-header-level 2)
 pattern="(<!-- CLI_HELP_START -->)[\\S\\s]*(<!-- CLI_HELP_END -->)"
 replacement=$'$1\n'"${cli_help}"$'\n$2'
