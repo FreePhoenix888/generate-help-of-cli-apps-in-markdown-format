@@ -1,7 +1,7 @@
 import path from 'path';
 import {execa} from 'execa';
 
-export interface generateHelpOfCliAppsInMarkdownFormatOptions {
+export interface GenerateHelpOfCliAppsInMarkdownFormatOptions {
   /**
    * Paths of CLI utility files
    */
@@ -18,7 +18,7 @@ export interface generateHelpOfCliAppsInMarkdownFormatOptions {
 /**
  * Generates help messages of CLI applications in markdown format
  */
-export async function generateHelpOfCliAppsInMarkdownFormat(options: generateHelpOfCliAppsInMarkdownFormatOptions): Promise<string> {
+export async function generateHelpOfCliAppsInMarkdownFormat(options: GenerateHelpOfCliAppsInMarkdownFormatOptions): Promise<string> {
   // Set default options
   const {
     cliAppFilePaths: cliAppFilePaths,
