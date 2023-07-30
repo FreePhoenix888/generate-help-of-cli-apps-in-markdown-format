@@ -1,6 +1,7 @@
 import path from 'path';
 import {execa} from 'execa';
 import fsExtra from 'fs-extra'
+import debug from 'debug';
 
 export interface BaseOutputOptions {
   /**
@@ -60,23 +61,30 @@ export interface GenerateHelpOfCliAppsInMarkdownFormatOptions {
  * Generates help messages of CLI applications in markdown format
  */
 export async function generateHelpOfCliAppsInMarkdownFormat(options: GenerateHelpOfCliAppsInMarkdownFormatOptions): Promise<string> {
+  const log = debug(generateHelpOfCliAppsInMarkdownFormat.name);
+  log({options})
   // Set default options
   const {
     cliAppFilePaths: cliAppFilePaths,
     rootHeaderLevel = 2
   } = options;
+  log({cliAppFilePaths, rootHeaderLevel})
 
   // Prepare a place to collect all help messages
   let allHelpMessages = ``;
 
   // Process each CLI utility file
   for (const cliAppFilePath of cliAppFilePaths) {
+    log({cliAppFilePath})
     // Run the utility with '--help' to get its help message
     const { stdout: helpMessage } = await execa(cliAppFilePath, ['--help']);
+    log({helpMessage})
 
     // Get the base name of the utility file (without path)
     const cliUtilityFileNameWithExtension = path.basename(cliAppFilePath);
+    log({cliUtilityFileNameWithExtension})
     const cliUtilityFileNameWithoutExtension = path.basename(cliAppFilePath, path.extname(cliAppFilePath));
+    log({cliUtilityFileNameWithoutExtension})
 
     // Format the help message and add it to all help messages
     allHelpMessages += `
@@ -85,24 +93,29 @@ ${`#`.repeat(rootHeaderLevel+1)} \`${cliUtilityFileNameWithoutExtension}\`
 ${helpMessage.replace(cliUtilityFileNameWithExtension, cliUtilityFileNameWithoutExtension)}
 \`\`\`
 `;
+    log({allHelpMessages})
   }
+  log({allHelpMessages})
 
   if(options.output) {
     if(options.output.writeMode === 'replace-placeholder') {
       const placeholderStart = options.output.placeholder.start;
+      log({placeholderStart})
       const placeholderEnd = options.output.placeholder.end;
-      const placeholderRegex = new RegExp(`${placeholderStart}[\S\s]*${placeholderEnd}`, 'g');
+      log({placeholderEnd})
+      const placeholderRegex = new RegExp(`${placeholderStart}[\\S\\s]*${placeholderEnd}`, 'g');
+      log({placeholderRegex})
       const filePath = options.output.filePath;
+      log({filePath})
       const markdown = fsExtra.readFileSync(filePath, 'utf-8');
+      log({markdown})
       const newFileContents = markdown.replace(placeholderRegex, `${placeholderStart}\n${allHelpMessages}\n${placeholderEnd}`);
+      log({newFileContents})
       fsExtra.writeFileSync(filePath, newFileContents)
-    } else  {
-      const fileContents = fsExtra.readFileSync(options.output.filePath, 'utf-8');
-      if(options.output.writeMode === 'append') {
-        fsExtra.appendFileSync(options.output.filePath, `${fileContents}\n${allHelpMessages}`)
-      } else if(options.output.writeMode === 'overwrite') {
-        fsExtra.writeFileSync(options.output.filePath, allHelpMessages)
-      }
+    } else if(options.output.writeMode === 'append') {
+      fsExtra.appendFileSync(options.output.filePath, allHelpMessages)
+    } else if(options.output.writeMode === 'overwrite') {
+      fsExtra.writeFileSync(options.output.filePath, allHelpMessages)
     }
   }
 
