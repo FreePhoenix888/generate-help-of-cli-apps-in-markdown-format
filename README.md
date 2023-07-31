@@ -14,9 +14,6 @@ Generates help messages of CLI applications in markdown format in markdown forma
 
 <!-- TABLE_OF_CONTENTS_END -->
 
-# What can it be used for?
-You can generate usage ways of CLI application and put them into your README.md file. This way you will always have up to date documentation of your CLI application in your README.md file.
-
 # Quick Start
 - Add the following to your README.md
   ```markdown
