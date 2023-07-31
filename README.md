@@ -6,10 +6,8 @@ Generates help messages of CLI applications in markdown format in markdown forma
 # Table Of Contents
 <!-- TABLE_OF_CONTENTS_START -->
 - [Table Of Contents](#table-of-contents)
-- [What can it be used for?](#what-can-it-be-used-for?)
+- [What can it be used for?](#what-can-it-be-used-for)
 - [Quick Start](#quick-start)
-  - [Pre-requisites](#pre-requisites)
-  - [JavaScript](#javascript)
   - [Bash](#bash)
 - [Library](#library)
   - [Library Usage](#library-usage)
@@ -20,7 +18,6 @@ Generates help messages of CLI applications in markdown format in markdown forma
 You can generate usage ways of CLI application and put them into your README.md file. This way you will always have up to date documentation of your CLI application in your README.md file.
 
 # Quick Start
-## Pre-requisites
 - Add the following to your README.md
   ```markdown
   <!-- CLI_HELP_START -->
@@ -30,8 +27,7 @@ You can generate usage ways of CLI application and put them into your README.md 
   ```bash
   find ./dist/cli/ -name "*.js" -exec chmod +x {} \;
   ```
-## JavaScript
-Run this javascript code
+- Run this javascript code
 ```javascript
 import {readFileSync, writeFileSync} from 'fs';
 import {generateHelpOfCliAppsInMarkdownFormat} from '@freephoenix888/generate-help-of-cli-apps-in-markdown-format';
@@ -45,14 +41,9 @@ const generatedHelpOfCliApps = generateHelpOfCliAppsInMarkdownFormat({
       start: `<!-- CLI_HELP_START -->`,
       end: `<!-- CLI_HELP_END -->`,
     },
-    filePath: readmeFilePath
+    filePath: `./README.md`,
   }
 });
-const readme = readFileSync('README.md', 'utf8');
-const pattern = /(<!-- CLI_HELP_START -->)[\S\s]*(<!-- CLI_HELP_END -->)/;
-const replacement = '$1\n' + generatedHelpOfCliApps + '\n$2';
-const newReadme = readme.replace(pattern, replacement);
-writeFileSync('README.md', newReadme);
 ```
 ## Bash
 Run this bash script
