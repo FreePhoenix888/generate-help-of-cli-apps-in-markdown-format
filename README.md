@@ -22,8 +22,6 @@ You can generate usage ways of CLI application and put them into your README.md 
 ## Pre-requisites
 - Add the following to your README.md
   ```markdown
-  # Cli
-  ## Cli Usage
   <!-- CLI_HELP_START -->
   <!-- CLI_HELP_END -->
   ```
