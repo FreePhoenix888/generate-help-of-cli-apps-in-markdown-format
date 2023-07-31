@@ -6,13 +6,16 @@ Generates help messages of CLI applications in markdown format in markdown forma
 # Table Of Contents
 <!-- TABLE_OF_CONTENTS_START -->
 - [Table Of Contents](#table-of-contents)
-- [What can it be used for?](#what-can-it-be-used-for)
+- [What can it be used for?](#what-can-it-be-used-for?)
 - [Quick Start](#quick-start)
   - [Pre-requisites](#pre-requisites)
+- [Cli](#cli)
+  - [Cli Usage](#cli-usage)
   - [JavaScript](#javascript)
   - [Bash](#bash)
 - [Library](#library)
   - [Library Usage](#library-usage)
+
 <!-- TABLE_OF_CONTENTS_END -->
 
 # What can it be used for?
