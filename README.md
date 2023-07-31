@@ -9,8 +9,6 @@ Generates help messages of CLI applications in markdown format in markdown forma
 - [What can it be used for?](#what-can-it-be-used-for?)
 - [Quick Start](#quick-start)
   - [Pre-requisites](#pre-requisites)
-- [Cli](#cli)
-  - [Cli Usage](#cli-usage)
   - [JavaScript](#javascript)
   - [Bash](#bash)
 - [Library](#library)
