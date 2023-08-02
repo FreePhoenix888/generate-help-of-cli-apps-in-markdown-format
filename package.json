@@ -8,9 +8,6 @@
   "repository": {
     "url": "https://github.com/FreePhoenix888/generate-help-of-cli-apps-in-markdown-format"
   },
-  "bin": {
-    "generate-help-of-cli-apps-in-markdown-format": "dist/cli/generate-help-of-cli-apps-in-markdown-format.js"
-  },
   "scripts": {
     "library:build:clean": "fse remove dist && npm run library:build:dirty",
     "library:build:dirty": "ts-node --esm ./automation/library/build.ts",
