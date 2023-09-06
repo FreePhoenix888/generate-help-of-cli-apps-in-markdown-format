@@ -20,9 +20,18 @@ Generates help messages of CLI applications in markdown format in markdown forma
   <!-- CLI_HELP_END -->
   ```
 - Allow execution of your cli utilities. For example in bash you can do it like this
-  ```bash
-  find ./dist/cli/ -name "*.js" -exec chmod +x {} \;
-  ```
+   - Bash Version
+     ```bash
+     find ./dist/cli/ -name "*.js" -exec chmod +x {} \;
+     ```
+   - Javascript version
+     ```js
+     const files = glob.sync(path.resolve(process.cwd(), 'dist', 'cli', "*.js"));
+     const writeMode = '755'
+     for (const file of files) {
+       fsExtra.chmodSync(file, writeMode)
+     }
+     ```
 - Run this javascript code
 ```javascript
 import {readFileSync, writeFileSync} from 'fs';
